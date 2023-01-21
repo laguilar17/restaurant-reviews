@@ -12,7 +12,7 @@ export default class ReviewsDAO {
             reviews = await conn.db(process.env.RESTREVIEWS_NS).collection("reviews")
         }
         catch (e) {
-            console.error('Unable to establish collection handles in userDAO: ${e}')
+            console.error(`Unable to establish collection handles in userDAO: ${e}`)
         }
     }
     static async addReview(restaurantId, user, review, date) {
@@ -27,7 +27,7 @@ export default class ReviewsDAO {
             return await reviews.insertOne(reviewDoc)
         }
         catch (e) {
-            console.error('Unable to post review: ${e}')
+            console.error(`Unable to post review: ${e}`)
             return { error: e }
         }
     }
@@ -40,7 +40,7 @@ export default class ReviewsDAO {
             return updateResponse
         }
         catch (e) {
-            console.error('Unable to update review: ${e}')
+            console.error(`Unable to update review: ${e}`)
             return { error: e }
         }
     }
@@ -52,7 +52,7 @@ export default class ReviewsDAO {
             return deleteResponse
         }
         catch (e) {
-            console.error('Unable to delete review: ${e}')
+            console.error(`Unable to delete review: ${e}`)
             return { error: e }
         }
     }
